@@ -1,6 +1,20 @@
-﻿provider "azurerm" {
+﻿terraform {
+  backend "remote" {
+    organization = "phil-dev"
+
+    workspaces {
+      name = "gh-actions-ws"
+    }
+  }
+}
+
+provider "azurerm" {
   features {}
   version = "=2.20.0"
+  subscription_id = var.sub
+  client_id = var.client_id
+  client_secret = var.client_secret
+  tenant_id = var.tenant_id
 }
 
 resource "azurerm_resource_group" "rg" {
