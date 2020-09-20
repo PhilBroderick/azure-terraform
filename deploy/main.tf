@@ -20,6 +20,9 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg" {
   name      = var.rgName
   location  = var.location
+  tags = {
+    Env = "Dev"
+  }
 }
 
 resource "azurerm_storage_account" "storage" {
