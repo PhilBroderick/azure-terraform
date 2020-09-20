@@ -14,6 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
+      - name: deploy directory
+        run: ls -R
+        working-directory: ${{env.working-directory}}
+      
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
